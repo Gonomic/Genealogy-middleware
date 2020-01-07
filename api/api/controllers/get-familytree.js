@@ -19,7 +19,7 @@ module.exports = {
             type: 'number',
             required: true
         },
-        GenerationsToDown: {
+        GenerationsToGoDown: {
             description: 'Number of (child) generations to get.',
             type: 'number',
             required: true
