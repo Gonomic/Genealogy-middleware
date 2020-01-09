@@ -57,7 +57,7 @@ module.exports = {
         } else {
             return exits.success({
                 message: 'Familytree was found',
-                data: FamilyTree.rows[0][0]
+                data: FamilyTree.rows[0]
             });
         }
     }
