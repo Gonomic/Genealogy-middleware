@@ -22,7 +22,7 @@ module.exports.routes = {
 
     '/': { view: 'pages/homepage' },
     'get /getFather': 'get-father',
-    'get /getFamilyTree': 'get-familytree'
+    'get /getFamilyTree': 'get-familytree',
     'get /getPlainListOfPersons': 'get-plainlistofpersons'
 
 
