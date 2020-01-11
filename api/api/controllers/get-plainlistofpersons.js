@@ -34,13 +34,14 @@ module.exports = {
 
     fn: async function(inputs, exits) {
         var PersonsToChooseFrom = await sails.sendNativeQuery('call GetPlainListOfPersons($1)', [inputs.NameInLike]);
+        console.log('Name to look for: ' + inputs.NameInLike);
         if (PersonsToChooseFrom[0].length === 0) {
             return exits.notFound({
                 message: 'Found no alike sounding person(s)!'
             });
         } else {
             return exits.success({
-                message: 'Alike sounding person(s) was (were) found.',
+                message: 'Alike sounding person(s) was (were) found for search string: ' + inputs.NameInLike,
                 data: PersonsToChooseFrom[0]
             });
         }
