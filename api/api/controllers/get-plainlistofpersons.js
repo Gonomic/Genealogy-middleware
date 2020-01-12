@@ -34,7 +34,6 @@ module.exports = {
 
     fn: async function(inputs, exits) {
         var PersonsToChooseFrom = await sails.sendNativeQuery('call GetPlainListOfPersons($1)', [inputs.NameInLike]);
-        console.log('Name to look for: ' + inputs.NameInLike);
         if (PersonsToChooseFrom.rows[0].length === 0) {
             return exits.notFound({
                 message: 'Found no alike sounding person(s) for searchstring:' + inputs.NameInLike,
