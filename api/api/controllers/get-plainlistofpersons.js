@@ -20,7 +20,7 @@ module.exports = {
     exits: {
 
         success: {
-            description: 'Person(s) was (were) found',
+            description: 'Person(s) with an alike sounding name was (were) found',
             responseType: ''
         },
 
@@ -35,14 +35,14 @@ module.exports = {
     fn: async function(inputs, exits) {
         var PersonsToChooseFrom = await sails.sendNativeQuery('call GetPlainListOfPersons($1)', [inputs.NameInLike]);
         console.log('Name to look for: ' + inputs.NameInLike);
-        if (PersonsToChooseFrom[0].length === 0) {
+        if (PersonsToChooseFrom.rows[0].length === 0) {
             return exits.notFound({
-                message: 'Found no alike sounding person(s)!'
+                message: 'Found no alike sounding person(s) for searchstring:' + inputs.NameInLike,
             });
         } else {
             return exits.success({
                 message: 'Alike sounding person(s) was (were) found for search string: ' + inputs.NameInLike,
-                data: PersonsToChooseFrom[0]
+                data: PersonsToChooseFrom.rows[1]
             });
         }
     }
