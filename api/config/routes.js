@@ -25,7 +25,8 @@ module.exports.routes = {
     'get /getFamilyTree': 'get-familytree',
     'get /getPlainListOfPersons': 'get-plainlistofpersons',
     'get /getPersonDetails': 'get-persondetails',
-    'get /getAllChildrenWithPartnerFromOneParent': 'get-children'
+    'get /getAllChildrenWithPartnerFromOneParent': 'get-children',
+    'get /getPossibleChildren': 'get-possibleChildrenlist'
 
 
     /***************************************************************************
