@@ -9,18 +9,13 @@ module.exports = {
 
 
     inputs: {
-        parentId: {
-            description: 'The object holding the childId, parentId and parentGender.',
-            type: 'number',
-            required: true
-        },
-        parentGender: {
-            description: 'The gender of the parent the child is added to.',
-            type: 'number',
-            required: true
-        },
         childId: {
             description: 'The Id of the child added to the parent.',
+            type: 'number',
+            required: true
+        },
+        parentId: {
+            description: 'The object holding the childId, parentId and parentGender.',
             type: 'number',
             required: true
         }
@@ -49,7 +44,7 @@ module.exports = {
 
 
     fn: async function(inputs, exits) {
-        var actionResult = await sails.sendNativeQuery('call AddChildToParent($1, $2, $3)', [inputs.parentId, inputs.parentGender, inputs.childId]);
+        var actionResult = await sails.sendNativeQuery('call AddChildToParent($1, $2)', [inputs.childId, inputs.parentId]);
         if (actionResult.rows[0].length === 0) {
             return exits.notExecuted({
                 message: 'Child ' + inputs.childId + ' was not added to parent ' + inputs.parentId,
