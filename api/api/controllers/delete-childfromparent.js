@@ -31,7 +31,7 @@ module.exports = {
 
         noSuccess: {
             description: 'Chils was NOT removed from parent.',
-            responseType: 'notFound'
+            responseType: ''
         },
 
         notExecuted: {
@@ -50,16 +50,27 @@ module.exports = {
                 message: 'Child ' + inputs.childId + ' was not removed from parent ' + inputs.parentId,
             });
         } else {
-            if (actionResult.rows[0][0].Result === 'NOK') {
-                return exits.noSuccess({
-                    message: 'Child ' + inputs.childId + ' was NOT removed from parent ' + inputs.parentId,
-                    data: actionResult.rows[0]
-                });
-            } else {
-                return exits.success({
-                    message: 'Child ' + inputs.childId + ' was removd from parent ' + inputs.parentId,
-                    data: actionResult.rows[0]
-                });
+            switch (actionResult.rows[0][0].Result) {
+                case 'Parent does not exist':
+                    return exits.noSuccess({
+                        message: 'Child ' + inputs.childId + ' was NOT removed from parent ' + inputs.parentId,
+                        data: actionResult.rows[0]
+                    });
+                case 'No existing relation':
+                    return exits.noSuccess({
+                        message: 'Child ' + inputs.childId + ' was NOT removed from parent ' + inputs.parentId,
+                        data: actionResult.rows[0]
+                    });
+                case 'Relation not removed':
+                    return exits.noSuccess({
+                        message: 'Child ' + inputs.childId + ' was NOT removed from parent ' + inputs.parentId,
+                        data: actionResult.rows[0]
+                    });
+                case 'Relation removed':
+                    return exits.success({
+                        message: 'Child ' + inputs.childId + ' was removd from parent ' + inputs.parentId,
+                        data: actionResult.rows[0]
+                    });
             }
         }
     }
