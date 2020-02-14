@@ -21,13 +21,13 @@ module.exports.routes = {
      ***************************************************************************/
 
     '/': { view: 'pages/homepage' },
+    'get /getPossibleFathers': 'get-possibleFatherslist',
     'get /getFather': 'get-father',
     'get /getFamilyTree': 'get-familytree',
     'get /getPlainListOfPersons': 'get-plainlistofpersons',
     'get /getPersonDetails': 'get-persondetails',
     'get /getAllChildrenWithPartnerFromOneParent': 'get-children',
     'get /getPossibleChildren': 'get-possibleChildrenlist',
-    'get /getPossibleFathers': 'get-possibleFatherslist',
     'get /getPossibleMothers': 'get-possibleMotherslist',
     'get /getPossiblePartners': 'get-possiblePartnerslist',
     'post /postAddChildToParent': 'post-addChildToParent',

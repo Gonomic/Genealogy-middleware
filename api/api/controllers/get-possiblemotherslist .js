@@ -9,7 +9,7 @@ module.exports = {
 
 
     inputs: {
-        PersonIdId: {
+        PersonId: {
             description: 'The id of the person to lookup possible mothers for.',
             type: 'number',
             required: true
