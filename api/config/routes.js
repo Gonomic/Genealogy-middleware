@@ -27,6 +27,9 @@ module.exports.routes = {
     'get /getPersonDetails': 'get-persondetails',
     'get /getAllChildrenWithPartnerFromOneParent': 'get-children',
     'get /getPossibleChildren': 'get-possibleChildrenlist',
+    'get /getPossibleFathers': 'get-possibleFatherslist',
+    'get /getPossibleMothers': 'get-possibleMotherslist',
+    'get /getPossiblePartners': 'get-possiblePartnerslist',
     'post /postAddChildToParent': 'post-addChildToParent',
     'delete /deleteChildFromParent': 'delete-childfromparent'
 
