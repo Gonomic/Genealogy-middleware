@@ -5,12 +5,12 @@ module.exports = {
     friendlyName: 'Get list of possible partners',
 
 
-    description: 'Get list of possible partners for the person whos PersonsId is givven.',
+    description: 'Get list of possible partners for a person of which PersonsId is givven.',
 
 
     inputs: {
         PersonId: {
-            description: 'The id of the person to lookup possible partners for.',
+            description: 'The id of the person to lookup possible partners.',
             type: 'number',
             required: true
         },

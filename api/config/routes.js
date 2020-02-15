@@ -21,15 +21,15 @@ module.exports.routes = {
      ***************************************************************************/
 
     '/': { view: 'pages/homepage' },
-    'get /getPossibleFathers': 'get-possibleFatherslist',
     'get /getFather': 'get-father',
     'get /getFamilyTree': 'get-familytree',
     'get /getPlainListOfPersons': 'get-plainlistofpersons',
     'get /getPersonDetails': 'get-persondetails',
     'get /getAllChildrenWithPartnerFromOneParent': 'get-children',
-    'get /getPossibleChildren': 'get-possibleChildrenlist',
-    'get /getPossibleMothers': 'get-possibleMotherslist',
-    'get /getPossiblePartners': 'get-possiblePartnerslist',
+    'get /getPossibleChildren': 'get-possiblechildrenlist',
+    'get /getPossibleFathers': 'get-possiblefatherslist',
+    'get /getPossibleMothers': 'get-possiblemotherslist',
+    'get /getPossiblePartners': 'get-possiblepartnerslist',
     'post /postAddChildToParent': 'post-addChildToParent',
     'delete /deleteChildFromParent': 'delete-childfromparent'
 
