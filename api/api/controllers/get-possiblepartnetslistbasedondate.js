@@ -10,7 +10,7 @@ module.exports = {
     inputs: {
         DateIn: {
             description: 'The date used to find possible partners.',
-            type: 'Date',
+            type: 'string',
             required: true
         },
     },
