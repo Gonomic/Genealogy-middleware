@@ -28,11 +28,11 @@ module.exports.routes = {
     'get /getAllChildrenWithPartnerFromOneParent': 'get-children',
     'get /getPossibleChildren': 'get-possiblechildrenlist',
     'get /getPossibleFathers': 'get-possiblefatherslist',
-    'get /getPossibleFathersBasedOnDate': 'get-possiblefathersbasedondate',
+    'get /getPossibleFathersBasedOnDate': 'get-possiblefatherslistbasedondate',
     'get /getPossibleMothers': 'get-possiblemotherslist',
-    'get /getPossibleMothersBasedOnDate': 'get-possiblemothersbasedondate',
+    'get /getPossibleMothersBasedOnDate': 'get-possiblemotherslistbasedondate',
     'get /getPossiblePartners': 'get-possiblepartnerslist',
-    'get /getPossiblePartnersBasedOnDate': 'get-possiblepartnersbasedondate',
+    'get /getPossiblePartnersBasedOnDate': 'get-possiblepartnerslistbasedondate',
     'post /postAddChildToParent': 'post-addChildToParent',
     'delete /deleteChildFromParent': 'delete-childfromparent'
 
