@@ -34,7 +34,9 @@ module.exports.routes = {
     'get /getPossiblePartners': 'get-possiblepartnerslist',
     'get /getPossiblePartnersBasedOnDate': 'get-possiblepartnerslistbasedondate',
     'post /postAddChildToParent': 'post-addChildToParent',
-    'delete /deleteChildFromParent': 'delete-childfromparent'
+    'delete /deleteChildFromParent': 'delete-childfromparent',
+    'post /postAddPerson': 'post-addperson',
+    'post /postChangePerson': 'post-changeperson'
 
 
     /***************************************************************************
