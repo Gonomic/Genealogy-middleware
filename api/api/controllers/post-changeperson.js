@@ -6,65 +6,69 @@ module.exports = {
 
     description: 'Change the record of the person and, if required, also change records in the relations table for father, mother and partner of the person.',
 
-
     inputs: {
         PersonID: {
-            description: 'The Id of the person to change.',
+            description: 'The Id of the person to add.',
             type: 'number',
-            required: true
+            required: false,
+            allowNull: true
         },
-        PersonGivenName: {
-            description: 'The given name of the person to change.',
+        PersonGivvenName: {
+            description: 'The given name of the person to add.',
             type: 'string',
             required: true
         },
         PersonFamilyName: {
-            description: 'The family name of the person to change.',
+            description: 'The family name of the person to add.',
             type: 'string',
             required: true
         },
         PersonDateOfBirth: {
-            description: 'The date of birth of the person to change.',
+            description: 'The date of birth of the person to add.',
             type: 'string',
             required: true
         },
         PersonPlaceOfBirth: {
-            description: 'The birth place of the person to change.',
+            description: 'The birth place of the person to add.',
             type: 'string',
             required: true
         },
         PersonDateOfDeath: {
-            description: 'The death date of the person to change.',
+            description: 'The death date of the person to add.',
             type: 'string',
-            required: true
+            required: false,
+            allowNull: true
         },
         PersonPlaceOfDeath: {
-            description: 'The place of death of the person to change.',
+            description: 'The place of death of the person to add.',
             type: 'string',
-            required: true
+            required: false,
+            allowNull: true
         },
         PersonIsMale: {
-            description: 'The gender of the person to change.',
+            description: 'The gender of the person to add.',
             type: 'boolean',
             required: true
         },
         MotherID: {
             description: 'The ID for the person-s Mother.',
             type: 'string',
-            required: true
+            required: false,
+            allowNull: true
         },
         FatherID: {
             description: 'The ID for the person-s Father.',
             type: 'string',
-            required: true
+            required: false,
+            allowNull: true
         },
         PartnerID: {
             description: 'The ID for the person-s Partner.',
             type: 'string',
-            required: true
+            required: false,
+            allowNull: true
         },
     },
-
 
     exits: {
 
@@ -87,11 +91,11 @@ module.exports = {
 
 
     fn: async function(inputs, exits) {
-        var actionResult = await sails.sendNativeQuery('call ChangePerson($1, $2, $3, $4, $5, $6, $7, $8)', [
+        var actionResult = await sails.sendNativeQuery('call AddPerson($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)', [
             inputs.PersonID,
-            inputs.PersonGivenName,
+            inputs.PersonGivvenName,
             inputs.PersonFamilyName,
-            inputs, PersonDateOfBirth,
+            inputs.PersonDateOfBirth,
             inputs.PersonPlaceOfBirth,
             inputs.PersonDateOfDeath,
             inputs.PersonPlaceOfDeath,
@@ -102,17 +106,17 @@ module.exports = {
         ]);
         if (actionResult.rows[0].length === 0) {
             return exits.notExecuted({
-                message: 'Person ' + inputs.PersonID + ' was not changed',
+                message: 'Person was not changed',
             });
         } else {
             if (actionResult.rows[0][0].Result === 'NOK') {
                 return exits.noSuccess({
-                    message: 'Person ' + inputs.PersonID + ' was NOT changed',
+                    message: 'Person was NOT changed',
                     data: actionResult.rows[0]
                 });
             } else {
                 return exits.success({
-                    message: 'Person ' + inputs.PersonID + ' was changed ',
+                    message: 'Person was changed ',
                     data: actionResult.rows[0]
                 });
             }
