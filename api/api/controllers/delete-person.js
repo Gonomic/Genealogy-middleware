@@ -17,19 +17,19 @@ module.exports = {
         MotherID: {
             description: 'The id of the Mother to be removed from the Person.',
             type: 'number',
-            required: true,
+            required: false,
             allowNull: true
         },
         FatherID: {
             description: 'The id of the Father to be removed from the Person.',
             type: 'number',
-            required: true,
+            required: false,
             allowNull: true
         },
         PartnerID: {
             description: 'The id of the Partner to be removed from the Person.',
             type: 'number',
-            required: true,
+            required: false,
             allowNull: true
         },
         Timestamp: {
