@@ -48,12 +48,12 @@ module.exports = {
         },
 
         noSuccess: {
-            description: 'Person was NOT removed from parent.',
+            description: 'Person was NOT removed.',
             responseType: ''
         },
 
         notExecuted: {
-            description: 'Person was NOT removed from parent.',
+            description: 'Person was NOT removed.',
             responseType: 'notFound'
         }
 
@@ -69,12 +69,17 @@ module.exports = {
             });
         } else {
             switch (actionResult.rows[0][0].Result) {
-                case 'Person does not exist':
+                case 'RecordWasChangedBySomeBodyElse':
                     return exits.noSuccess({
-                        message: 'Person ' + inputs.PersonID + ' was not deleted',
+                        message: 'RecordWasChangedBySomebodyElse',
                         data: actionResult.rows[0]
                     });
-                case 'Relation removed':
+                case 'Error':
+                    return exits.noSuccess({
+                        message: 'Error',
+                        data: actionResult.rows[0]
+                    });
+                case 'DeletionWasSuccesful':
                     return exits.success({
                         message: 'Person' + inputs.PersonID + ' was deleted',
                         data: actionResult.rows[0]
