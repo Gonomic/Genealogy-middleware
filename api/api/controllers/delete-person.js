@@ -69,11 +69,6 @@ module.exports = {
             });
         } else {
             switch (actionResult.rows[0][0].Result) {
-                case 'RecordWasChangedBySomeBodyElse':
-                    return exits.noSuccess({
-                        message: 'RecordWasChangedBySomebodyElse',
-                        data: actionResult.rows[0]
-                    });
                 case 'Error':
                     return exits.noSuccess({
                         message: 'Error',
@@ -82,6 +77,11 @@ module.exports = {
                 case 'DeletionWasSuccesful':
                     return exits.success({
                         message: 'Person' + inputs.PersonID + ' was deleted',
+                        data: actionResult.rows[0]
+                    });
+                case 'RecordWasChangedBySomeBodyElse':
+                    return exits.success({
+                        message: 'RecordWasChangedBySomebodyElse',
                         data: actionResult.rows[0]
                     });
             }
