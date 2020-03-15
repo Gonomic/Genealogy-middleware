@@ -91,7 +91,7 @@ module.exports = {
 
 
     fn: async function(inputs, exits) {
-        var actionResult = await sails.sendNativeQuery('call AddPerson($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)', [
+        var actionResult = await sails.sendNativeQuery('call ChangePerson($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)', [
             inputs.PersonID,
             inputs.PersonGivvenName,
             inputs.PersonFamilyName,
