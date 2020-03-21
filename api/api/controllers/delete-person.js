@@ -62,7 +62,7 @@ module.exports = {
 
 
     fn: async function(inputs, exits) {
-        console.log('deletePerson parameters= PersonID: ' + inputs.PersonID + ', MotherID: ' + inputs.MotherID + ', FatherID: ' + inputs.FatherID + ', PartnerID= ' + inputs.PartnerID + ', Timestamp: ' + inputs.Timestamp);
+        // console.log('deletePerson parameters= PersonID: ' + inputs.PersonID + ', MotherID: ' + inputs.MotherID + ', FatherID: ' + inputs.FatherID + ', PartnerID= ' + inputs.PartnerID + ', Timestamp: ' + inputs.Timestamp);
         var actionResult = await sails.sendNativeQuery('call deletePerson($1, $2, $3, $4, $5)', [inputs.PersonID, inputs.MotherID, inputs.FatherID, inputs.PartnerID, inputs.Timestamp]);
         if (actionResult.rows[0].length === 0) {
             return exits.notExecuted({

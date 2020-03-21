@@ -30,7 +30,8 @@ module.exports.security = {
 
     cors: {
         allRoutes: true,
-        allowOrigins: '*',
+        // allowOrigins: '*',
+        allowOrigins: ['https://dekknet.com', 'http://dekknet.com', 'https://dekknet.com:2001'],
         allowCredentials: false,
     },
 
@@ -49,6 +50,6 @@ module.exports.security = {
      *                                                                           *
      ****************************************************************************/
 
-    // csrf: false
+    csrf: true
 
 };
