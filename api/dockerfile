@@ -1,0 +1,27 @@
+FROM node:latest
+
+RUN npm install -g sails grunt npm-check-updates
+
+COPY ./package.json /package.json
+RUN npm install
+RUN npm install --save sails-mysql
+RUN npm update
+
+COPY ./api /api
+COPY ./assets /assets
+COPY ./config /config
+COPY ./views /views
+
+COPY ./entrypoint.sh /entrypoint.sh
+RUN sed -i 's/\r//' /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+COPY ./start-prod.sh /start-prod.sh
+RUN sed -i 's/\r//' /start-prod.sh
+RUN chmod +x /start-prod.sh
+
+# WORKDIR /app
+
+RUN sails lift --prod
+
+# ENTRYPOINT ["/entrypoint.sh"]
