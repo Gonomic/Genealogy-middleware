@@ -1,16 +1,25 @@
 FROM node:latest
 
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
+
 RUN npm install -g sails grunt npm-check-updates
 
-COPY ./package.json /package.json
+COPY ./package.json .
 RUN npm install
 RUN npm install --save sails-mysql
 RUN npm update
 
-COPY ./api /api
-COPY ./assets /assets
-COPY ./config /config
-COPY ./views /views
+RUN npm audit fix
+
+COPY ./api ./api
+COPY ./assets ./assets
+COPY ./views ./vieuws
+
+COPY ./config/env  ./config/env
+COPY ./config/locales ./config/locales
+COPY ./config/*.js ./config/
 
 COPY ./entrypoint.sh /entrypoint.sh
 RUN sed -i 's/\r//' /entrypoint.sh
@@ -20,8 +29,6 @@ COPY ./start-prod.sh /start-prod.sh
 RUN sed -i 's/\r//' /start-prod.sh
 RUN chmod +x /start-prod.sh
 
-# WORKDIR /app
+EXPOSE 1002 1002
 
-RUN sails lift --prod
-
-# ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
