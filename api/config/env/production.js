@@ -148,10 +148,14 @@ module.exports = {
          *                                                                          *
          ***************************************************************************/
         cors: {
-            // allowOrigins: [
-            //   'https://example.com',
-            // ]
+            allRoutes: true,
+            // allowOrigins: '*',
+            allowOrigins: ['https://dekknet.com', 'https://dekknet.com:1001', 'https://localhost:1001', 'https://192.168.1.11:1001'],
+            // allowCredentials: false,
         },
+
+
+
 
     },
 

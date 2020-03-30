@@ -31,8 +31,8 @@ module.exports.security = {
     cors: {
         allRoutes: true,
         // allowOrigins: '*',
-        allowOrigins: ['https://dekknet.com', 'http://dekknet.com', 'https://dekknet.com:2001'],
-        allowCredentials: false,
+        allowOrigins: ['https://dekknet.com', 'https://dekknet.com:1001', 'https://localhost:1001', 'https://192.168.1.11:1001'],
+        // allowCredentials: false,
     },
 
 
