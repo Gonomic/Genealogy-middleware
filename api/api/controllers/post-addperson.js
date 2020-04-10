@@ -108,16 +108,19 @@ module.exports = {
             inputs.PartnerID
         ]);
         if (actionResult.rows[0].length === 0) {
+            console.log('Sending transaction to DB server: no value returned (server not reacheable?');
             return exits.notExecuted({
                 message: 'Person was not added',
             });
         } else {
             if (actionResult.rows[0][0].Result === 'NOK') {
+                console.log('Sending transaction to DB server: value returned (NOK)');
                 return exits.noSuccess({
                     message: 'Person was NOT added',
                     data: actionResult.rows[0]
                 });
             } else {
+                console.log('Sending transaction to DB server: value returned (success)');
                 return exits.success({
                     message: 'Person was added ',
                     data: actionResult.rows[0]
