@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /**
  * Security Settings
  * (sails.config.security)
@@ -31,8 +32,34 @@ module.exports.security = {
     cors: {
         allRoutes: true,
         // allowOrigins: '*',
-        allowOrigins: ['https://dekknet.com', 'https://dekknet.com:1001', 'https://localhost:1001', 'https://192.168.1.11:1001'],
-        // allowCredentials: false,
+        allowOrigins: [
+            'https://dekknet.com',
+            'https://localhost',
+            'https://192.168.1.11',
+            'https://dekknet.com:1001',
+            'https://localhost:1001',
+            'https://192.168.1.11:1001',
+            'https://dekknet.com:1002',
+            'https://localhost:1002',
+            'https://192.168.1.11:1002',
+            'https://dekknet.com:1337',
+            'https://localhost:1337',
+            'https://192.168.1.11:1337',
+            'http://dekknet.com',
+            'http://localhost',
+            'http://192.168.1.11',
+            'http://dekknet.com:1001',
+            'http://localhost:1001',
+            'http://192.168.1.11:1001',
+            'http://dekknet.com:1002',
+            'http://localhost:1002',
+            'http://192.168.1.11:1002',
+            'http://dekknet.com:1337',
+            'http://localhost:1337',
+            'http://192.168.1.11:1337'
+        ],
+        allowRequestMethods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+        allowCredentials: true,
     },
 
 
@@ -50,6 +77,6 @@ module.exports.security = {
      *                                                                           *
      ****************************************************************************/
 
-    csrf: true
+    csrf: false
 
 };
