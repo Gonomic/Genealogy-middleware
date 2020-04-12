@@ -1,1 +1,1 @@
-docker image build -t fransdekkers/genmiddleware:1.0 .
+docker image build -t fransdekkers/genmiddleware:1.2 .
