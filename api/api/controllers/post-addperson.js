@@ -70,6 +70,18 @@ module.exports = {
             required: false,
             allowNull: true
         },
+        PersonDateOfBirthStatus: {
+            description: 'Signifies whether the birthdate is certain, estimated or unknown.',
+            type: 'number',
+            required: true,
+            allowNull: false
+        },
+        PersonDateOfDeathStatus: {
+            description: 'Signifies whether the date of death is certain, estimated or unknown.',
+            type: 'number',
+            required: false,
+            allowNull: true
+        },
     },
 
 
@@ -94,7 +106,7 @@ module.exports = {
 
 
     fn: async function(inputs, exits) {
-        var actionResult = await sails.sendNativeQuery('call AddPerson($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)', [
+        var actionResult = await sails.sendNativeQuery('call AddPerson($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)', [
             inputs.PersonID,
             inputs.PersonGivvenName,
             inputs.PersonFamilyName,
@@ -105,7 +117,9 @@ module.exports = {
             inputs.PersonIsMale,
             inputs.MotherID,
             inputs.FatherID,
-            inputs.PartnerID
+            inputs.PartnerID,
+            inputs.PersonDateOfBirthStatus,
+            inputs.PersonDateOfDeathStatus
         ]);
         if (actionResult.rows[0].length === 0) {
             console.log('Sending transaction to DB server: no value returned (server not reacheable?');
