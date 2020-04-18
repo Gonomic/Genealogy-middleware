@@ -150,8 +150,15 @@ module.exports = {
         cors: {
             allRoutes: true,
             // allowOrigins: '*',
-            allowOrigins: ['https://dekknet.com', 'https://dekknet.com:1001', 'https://localhost:1001', 'https://192.168.1.11:1001'],
-            // allowCredentials: false,
+            allowOrigins: ['https://dekknet.com',
+                'https://dekknet.com:1001',
+                'https://dekknet.com:1002',
+                'http://localhost:1001',
+                'https://localhost:1002',
+                'http://192.168.1.11:1001',
+                'https://192.168.1.11:1002'
+            ],
+            allowCredentials: true,
         },
 
 
@@ -256,9 +263,14 @@ module.exports = {
          ***************************************************************************/
         onlyAllowOrigins: [
             'https://dekknet.com',
-            'http://dekknet.com',
-            'http://localhost.com',
-            'http://192.168.1.11'
+            'https://dekknet.com:1001',
+            'https://dekknet.com:1002',
+            'https://Localhost',
+            'https://Localhost:1001',
+            'https://Localhost:1002',
+            'https://192.168.1.11',
+            'https://192.168.1.11:1001',
+            'https://192.168.1.11:1002'
         ],
 
 
