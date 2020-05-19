@@ -22,7 +22,6 @@ module.exports.routes = {
 
     '/': { view: 'view/.\boilpages/homepage' },
     'get /getFather': 'get-father',
-    'get /getFamilyTree': 'get-familytree',
     'get /getPlainListOfPersons': 'get-plainlistofpersons',
     'get /getPersonDetails': 'get-persondetails',
     'get /getAllChildrenWithPartnerFromOneParent': 'get-children',
@@ -33,6 +32,7 @@ module.exports.routes = {
     'get /getPossibleMothersBasedOnDate': 'get-possiblemotherslistbasedondate',
     'get /getPossiblePartners': 'get-possiblepartnerslist',
     'get /getPossiblePartnersBasedOnDate': 'get-possiblepartnerslistbasedondate',
+    'get /getFamilyTreeDownwards': 'get-familytreedownwards',
     'post /postAddChildToParent': 'post-addChildToParent',
     'delete /deleteChildFromParent': 'delete-childfromparent',
     'delete /deletePerson': 'delete-person',
