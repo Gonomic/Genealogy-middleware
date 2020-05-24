@@ -44,10 +44,11 @@ module.exports = {
 
 
     fn: async function(inputs, exits) {
-        if (inputs.LogingOn === null || inputs.LoginOn === undefined) {
+        if (inputs.LogingOn === undefined) {
             inputs.LogingOn = false;
         }
-        var FamilyTree = await sails.sendNativeQuery('call GetFamilyTreeDownwards($1, $2, $3)', [inputs.PersonIdIn, inputs.GenerationsToDown, inputs.LogingOn]);
+        var FamilyTree = await sails.sendNativeQuery('call GetFamilyTreeDownwards($1, $2, $3)', [inputs.PersonIdIn, inputs.GenerationsToGoDown, inputs.LogingOn]);
+        // console.log('ReturnVal= ' + JSON.stringify(FamilyTree));
         if (FamilyTree.rows[0].length === 0) {
             return exits.notFound({
                 message: 'Familytree NO persons were found downwards!'
