@@ -38,7 +38,8 @@ module.exports.routes = {
     'delete /deleteChildFromParent': 'delete-childfromparent',
     'delete /deletePerson': 'delete-person',
     'post /postAddPerson': 'post-addperson',
-    'post /postChangePerson': 'post-changeperson'
+    'post /postChangePerson': 'post-changeperson',
+    'post /postAddUser': 'post-adduser'
 
 
     /***************************************************************************
