@@ -33,13 +33,15 @@ module.exports.routes = {
     'get /getPossiblePartners': 'get-possiblepartnerslist',
     'get /getPossiblePartnersBasedOnDate': 'get-possiblepartnerslistbasedondate',
     'get /getFamilyTreeDownwards': 'get-familytreedownwards',
+    'get /getCheckPassword': 'get-checkpassword',
     'get /tester': 'tester',
     'post /postAddChildToParent': 'post-addChildToParent',
     'delete /deleteChildFromParent': 'delete-childfromparent',
     'delete /deletePerson': 'delete-person',
     'post /postAddPerson': 'post-addperson',
     'post /postChangePerson': 'post-changeperson',
-    'post /postAddUser': 'post-adduser'
+    'post /postAddUser': 'post-adduser',
+    'post /postChangeUser': 'post-changeuser'
 
 
     /***************************************************************************

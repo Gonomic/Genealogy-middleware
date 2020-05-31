@@ -2,11 +2,10 @@
 module.exports = {
 
 
-    friendlyName: 'Post to add a user',
+    friendlyName: 'Change data of a user',
 
 
-    description: 'Post a record to the users table.',
-
+    description: 'Change the record of a specific user.',
 
     inputs: {
         UserID: {
@@ -21,7 +20,7 @@ module.exports = {
             required: true
         },
         UserGivvenName: {
-            description: 'The given name of the user to add.',
+            description: 'The givven name of the user to add.',
             type: 'string',
             required: true
         },
@@ -36,7 +35,7 @@ module.exports = {
             required: true
         },
         Wachtwoord: {
-            description: 'The password of the user to add.',
+            description: 'The pssword of the user to add.',
             type: 'string',
             required: true
         },
@@ -45,47 +44,45 @@ module.exports = {
     exits: {
 
         success: {
-            description: 'User was added.',
+            description: 'User was changed.',
             responseType: ''
         },
 
         noSuccess: {
-            description: 'User was NOT added.',
+            description: 'User was NOT changed.',
             responseType: 'notFound'
         },
 
         notExecuted: {
-            description: 'User was NOT added.',
+            description: 'User was NOT changed.',
             responseType: 'notFound'
         }
+
     },
 
 
     fn: async function(inputs, exits) {
-        var actionResult = await sails.sendNativeQuery('call AddUser($1, $2, $3, $4, $5, $6)', [
+        var actionResult = await sails.sendNativeQuery('call ChangeUser($1, $2, $3, $4, $5, $6)', [
             inputs.UserID,
             inputs.UserName,
             inputs.UserGivvenName,
             inputs.UserFamilyName,
             inputs.UserEmailAdress,
-            inputs.Wachtwoord
+            inputs.userWachtwoord
         ]);
         if (actionResult.rows[0].length === 0) {
-            console.log('Sending transaction to DB server: no value returned (server not reacheable?');
             return exits.notExecuted({
-                message: 'User was not added',
+                message: 'User was not changed',
             });
         } else {
             if (actionResult.rows[0][0].Result === 'NOK') {
-                console.log('Sending transaction to DB server: value returned (NOK)');
                 return exits.noSuccess({
-                    message: 'User was NOT added',
+                    message: 'User was NOT changed',
                     data: actionResult.rows[0]
                 });
             } else {
-                console.log('Sending transaction to DB server: value returned (success)');
                 return exits.success({
-                    message: 'User was added ',
+                    message: 'User was changed ',
                     data: actionResult.rows[0]
                 });
             }
